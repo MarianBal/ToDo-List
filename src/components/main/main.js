@@ -11,30 +11,49 @@ class Main extends Component {
 		}
 
 
-  agregar = () =>{
-    const nuevoArray = [...this.state.arrayDeNotas]
-    nuevoArray.push(this.state.nota);
+  newToDo= () =>{
+  
+		this.state.notesArray.push(this.state.note);
 
     this.setState({
-      arrayDeNotas:nuevoArray,
-      mostrarNotas:true,
-      nota:''
+
+      showNotes:true,
+      note:''
     })
   }
 
   handleChange = e =>{
   	this.setState({
-      nota:e.target.value
-    })
+      note:e.target.value
+		})
 	}
+remove = i =>{
+  this.setState({
+    index:i
+    })
+    console.log(i)
+  console.log(this.state.notesArray)
+
+  
+}
+
+componentDidUpdate(){
+  this.setState({
+
+    notesArray:notesArray.splice(this.state.index, 1)
+
+  })
+
+}
+
 
   render(){
     return (
       <div className="background">
-        <div>To Do List</div>
-        <input value={this.state.nota} onChange={this.handleChange}></input>
-        <button onClick={this.agregar}>Agregar</button>
-        	{this.state.mostrarNotas === true ? <Note array = {this.state.arrayDeNotas} funcion={this.funcionDelPadre}/> : ''}
+        <div className="title">To Do List</div>
+        <input placeholder="New To Do" value={this.state.note} onChange={this.handleChange}></input>
+        <button onClick={this.newToDo}>Agregar</button>
+        	{this.state.showNotes ? <Note array = {this.state.notesArray} remove={this.remove}/> : ''}
     	</div>
   	)
   }

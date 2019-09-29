@@ -1,0 +1,20 @@
+.background{
+  background-color: white;
+}
+
+.title{
+  font-weight: bold;
+  font-size: 30px;
+  padding: 10px;
+
+}
+
+input{
+  width: 30%;
+  height: 30px;
+  padding: 5px;
+  border:none;
+  border-bottom: 1px solid grey;
+  margin-top: 10px;
+  font-size: 16px;
+}

@@ -5,29 +5,28 @@ import Button from '../button/button'
 import './note.css';
 
 class  Note extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            titulo:'Mis notas',
-            nota: '',
-            arrayDeNotas: [],
-            mostrarNota: false,
-            funcionEnviadaPorPorps: ()=>console.log('algo')
-        }
-    }
 
-    componentDidMount(){
-        this.setState({
+  // state = {
+  //   titulo:'Mis notas',
+  //   nota: '',
+  //   arrayDeNotas: [],
+  //   mostrarNota: false,
+  //           funcionEnviadaPorPorps: ()=>console.log('algo')
+  //       }
+  //   }
+
+  //   componentDidMount(){
+  //       this.setState({
         
-        })
-    };
+  //       })
+  //   };
 
     
     render(){
     return (
         <div className="contenedor">
         
-        {this.props.array.map(n=><div className="nota"><Button cerrar = {this.props.funcion}/>{n}</div>)}
+        {this.props.array.map((n, i)=><div className="nota"><Button remove = {this.props.remove} i={i}/>{n}</div>)}
         </div>
     );
     };
