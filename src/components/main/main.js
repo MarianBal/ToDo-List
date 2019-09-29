@@ -26,26 +26,13 @@ class Main extends Component {
   	this.setState({
       note:e.target.value
 		})
-	}
+  }
+  
 remove = i =>{
   this.setState({
-    index:i
-    })
-    console.log(i)
-  console.log(this.state.notesArray)
-
-  
+    newArray: this.state.notesArray.splice(i,1)
+    }) 
 }
-
-componentDidUpdate(){
-  this.setState({
-
-    notesArray:notesArray.splice(this.state.index, 1)
-
-  })
-
-}
-
 
   render(){
     return (
