@@ -34,11 +34,15 @@ remove = i =>{
     }) 
 }
 
+handleTest =e => e.charCode === 13 ? this.newToDo() : '';
+
+
   render(){
+
     return (
       <div className="background">
         <div className="title">To Do List</div>
-        <input placeholder="New To Do" value={this.state.note} onChange={this.handleChange}></input>
+        <input placeholder="New To Do" value={this.state.note} onChange={this.handleChange}onKeyPress={this.handleTest}></input>
         <button onClick={this.newToDo}>Agregar</button>
         	{this.state.showNotes ? <Note array = {this.state.notesArray} remove={this.remove}/> : ''}
     	</div>
