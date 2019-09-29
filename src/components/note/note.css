@@ -1,0 +1,21 @@
+.contenedor{
+    width:70%;
+    height: auto;
+    display:flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+.nota{
+    width:100px;
+    height: 100px;
+    padding: 10px;
+    margin:5px;
+    background-color: yellow;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+}
