@@ -1,6 +1,8 @@
-.close{
-    color:red;
-    font-size:20px;
+i{
     align-self: flex-end;
     cursor:pointer;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
 }

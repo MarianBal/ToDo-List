@@ -7,12 +7,12 @@ class Main extends Component {
   state = {
     note: '',
     notesArray: [],
-		showNotes: false,      
+		showNotes: false,
 		}
 
 
   newToDo= () =>{
-  
+
 		this.state.notesArray.push(this.state.note);
 
     this.setState({
@@ -27,11 +27,11 @@ class Main extends Component {
       note:e.target.value
 		})
   }
-  
+
 remove = i =>{
   this.setState({
     newArray: this.state.notesArray.splice(i,1)
-    }) 
+    })
 }
 
 handleTest =e => e.charCode === 13 ? this.newToDo() : '';
@@ -41,9 +41,8 @@ handleTest =e => e.charCode === 13 ? this.newToDo() : '';
 
     return (
       <div className="background">
-        <div className="title">To Do List</div>
         <input placeholder="New To Do" value={this.state.note} onChange={this.handleChange}onKeyPress={this.handleTest}></input>
-        <button onClick={this.newToDo}>Agregar</button>
+        <i onClick={this.newToDo} className="fas fa-plus"></i>
         	{this.state.showNotes ? <Note array = {this.state.notesArray} remove={this.remove}/> : ''}
     	</div>
   	)
