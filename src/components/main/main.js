@@ -1,52 +1,35 @@
-import React, {Component} from 'react';
+import React, { useState } from 'react';
 import Note from '../note/note';
 import './Main.css';
 
-class Main extends Component {
+const Main = () => {
 
-  state = {
-    note: '',
-    notesArray: [],
-		showNotes: false,
-		}
+  const [note, setNote] = useState('');
+  const [notesArray, setNotesArray] = useState([]);
+  const [showNotes, setShowNotes] = useState(false);
 
-
-  newToDo= () =>{
-
-		this.state.notesArray.push(this.state.note);
-
-    this.setState({
-
-      showNotes:true,
-      note:''
-    })
+  const newToDo= () => {
+    notesArray.push(note);
+    setShowNotes(true)
+    setNote('');
   }
 
-  handleChange = e =>{
-  	this.setState({
-      note:e.target.value
-		})
-  }
+  const handleChange = e => setNote(e.target.value);
 
-remove = i =>{
-  this.setState({
-    newArray: this.state.notesArray.splice(i,1)
-    })
-}
-
-handleTest =e => e.charCode === 13 ? this.newToDo() : '';
+  const remove = i =>{
+    setNotesArray(notesArray.splice(i,1));
+    console.log('remove '+ i )}
 
 
-  render(){
+  const handleTest =e => e.charCode === 13 ? newToDo() : '';
 
-    return (
-      <div className="background">
-        <input placeholder="New To Do" value={this.state.note} onChange={this.handleChange}onKeyPress={this.handleTest}></input>
-        <i onClick={this.newToDo} className="fas fa-plus"></i>
-        	{this.state.showNotes ? <Note array = {this.state.notesArray} remove={this.remove}/> : ''}
-    	</div>
-  	)
-  }
+  return (
+    <div className="background">
+      <input placeholder="New To Do" value={note} onChange={handleChange} onKeyPress={handleTest}/>
+        <i onClick={newToDo} className="fas fa-plus"></i>
+        {showNotes ? <Note notesArray = {notesArray} remove={remove}/> : ''}
+    </div>
+  )
 }
 
 export default Main;
