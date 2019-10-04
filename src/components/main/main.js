@@ -17,9 +17,9 @@ const Main = () => {
   const handleChange = e => setNote(e.target.value);
 
   const remove = i =>{
-    setNotesArray(notesArray.splice(i,1));
-    console.log('remove '+ i )}
-
+    const remove = notesArray.splice(i,1)
+    setNotesArray(notesArray.filter(e=> e!== remove))
+  }
 
   const handleTest =e => e.charCode === 13 ? newToDo() : '';
 
