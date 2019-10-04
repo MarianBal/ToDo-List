@@ -1,1 +1,1 @@
-http://cooing-flag.surge.sh/
+Deployed version: http://cooing-flag.surge.sh/
